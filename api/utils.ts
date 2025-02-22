@@ -35,16 +35,16 @@ export function replaceFileUrl(obj: Record<string, any>) {
     const key = i
     const val = obj[i]
 
-    // String
-    if (typeof val === 'string') {
-      if (val.startsWith('https://')) {
-        obj[key] = val
-          .replace('storage1.picacomic.com', 's3.picacomic.com')
-          .replace('storage-b.picacomic.com', 's3.picacomic.com')
-          .replace('img.picacomic.com', 's3.picacomic.com')
-          .replace('www.picacomic.com', 'pica-pica.wikawika.xyz')
-      }
-    }
+   // String
+if (typeof val === 'string') {
+  if (val.startsWith('https://')) {
+    obj[key] = val
+      .replace('storage1.picacomic.com', 'pica-img.120261.xyz/proxy/s3.picacomic.com')
+      .replace('storage-b.picacomic.com', 'pica-img.120261.xyz/proxy/s3.picacomic.com')
+      .replace('img.picacomic.com', 'pica-img.120261.xyz/proxy/s3.picacomic.com')
+      .replace('www.picacomic.com', 'pica-pica.wikawika.xyz')
+  }
+}
     // Object
     else if (typeof val === 'object') {
       obj[key] = replaceFileUrl(val)
